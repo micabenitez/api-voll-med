@@ -14,19 +14,20 @@ import java.time.ZoneOffset;
 
 @Service
 public class TokenService {
+
     @Value("${api.security.token.secret}")
     private String secret;
 
     public String generarToken(Usuario usuario) {
         try {
-            var algorithm = Algorithm.HMAC256(secret);
+            var algoritmo = Algorithm.HMAC256(secret);
             return JWT.create()
                     .withIssuer("API")
                     .withSubject(usuario.getUsername())
                     .withExpiresAt(fechaExpiracion())
-                    .sign(algorithm);
+                    .sign(algoritmo);
         } catch (JWTCreationException exception){
-            throw new RuntimeException("Error al generar el token JWT", exception);
+            throw new RuntimeException("error al generar el token JWT", exception);
         }
     }
 
@@ -36,15 +37,14 @@ public class TokenService {
 
     public String getSubject(String tokenJWT) {
         try {
-            var algorithm = Algorithm.HMAC256(secret);
-            return JWT.require(algorithm)
+            var algoritmo = Algorithm.HMAC256(secret);
+            return JWT.require(algoritmo)
                     .withIssuer("API")
                     .build()
                     .verify(tokenJWT)
                     .getSubject();
         } catch (JWTVerificationException exception){
-            throw new RuntimeException("Token JWT inválido o expirado");
+            throw new RuntimeException("Token JWT invalido o expirado!");
         }
     }
 }
-
