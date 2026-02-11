@@ -1,11 +1,11 @@
 package com.mb.api_consultorio.controller;
 
-import com.mb.api_consultorio.dto.DatosActualizacionMedico;
-import com.mb.api_consultorio.dto.DatosDetalleMedico;
-import com.mb.api_consultorio.dto.DatosListaMedico;
-import com.mb.api_consultorio.dto.DatosRegistroMedico;
-import com.mb.api_consultorio.model.Medico;
-import com.mb.api_consultorio.repository.MedicoRepository;
+import com.mb.api_consultorio.domain.medico.DatosActualizacionMedico;
+import com.mb.api_consultorio.domain.medico.DatosDetalleMedico;
+import com.mb.api_consultorio.domain.medico.DatosListaMedico;
+import com.mb.api_consultorio.domain.medico.DatosRegistroMedico;
+import com.mb.api_consultorio.domain.medico.Medico;
+import com.mb.api_consultorio.domain.medico.MedicoRepository;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;

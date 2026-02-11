@@ -1,6 +1,6 @@
 package com.mb.api_consultorio.infra.security;
 
-import com.mb.api_consultorio.repository.UsuarioRepository;
+import com.mb.api_consultorio.domain.usuario.UsuarioRepository;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

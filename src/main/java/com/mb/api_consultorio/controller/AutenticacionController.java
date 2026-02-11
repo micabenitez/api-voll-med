@@ -1,9 +1,9 @@
 package com.mb.api_consultorio.controller;
 
-import com.mb.api_consultorio.dto.DatosAutenticacion;
+import com.mb.api_consultorio.domain.usuario.DatosAutenticacion;
 import com.mb.api_consultorio.infra.security.DatosTokenJWT;
 import com.mb.api_consultorio.infra.security.TokenService;
-import com.mb.api_consultorio.model.Usuario;
+import com.mb.api_consultorio.domain.usuario.Usuario;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

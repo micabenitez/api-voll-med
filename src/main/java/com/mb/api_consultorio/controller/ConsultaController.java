@@ -1,9 +1,8 @@
 package com.mb.api_consultorio.controller;
 
-import com.mb.api_consultorio.dto.DatosCancelacionReserva;
-import com.mb.api_consultorio.dto.DatosDetalleConsulta;
-import com.mb.api_consultorio.dto.DatosReservaConsulta;
-import com.mb.api_consultorio.service.ReservaDeConsulta;
+import com.mb.api_consultorio.domain.consulta.DatosCancelacionReserva;
+import com.mb.api_consultorio.domain.consulta.DatosReservaConsulta;
+import com.mb.api_consultorio.domain.consulta.ReservaDeConsulta;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,8 +21,10 @@ public class ConsultaController {
     @PostMapping
     @Transactional
     public ResponseEntity reservar(@RequestBody @Valid DatosReservaConsulta datos) {
-        reserva.reservar(datos);
-        return ResponseEntity.ok(new DatosDetalleConsulta(null,null,null,null));
+
+        var detalleConsulta = reserva.reservar(datos);
+
+        return ResponseEntity.ok(detalleConsulta);
     }
 
     @DeleteMapping("/cancelar-consulta")
